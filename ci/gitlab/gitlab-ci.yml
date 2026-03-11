@@ -1,0 +1,29 @@
+stages:
+  - test
+
+variables:
+  PLAYWRIGHT_BROWSERS_PATH: 0
+  NODE_ENV: test
+
+before_script:
+  - npm install
+
+test:
+  stage: test
+  script:
+    - npm run test:ui
+    - npm run test:api
+  artifacts:
+    paths:
+      - artifacts/screenshots
+      - artifacts/videos
+      - artifacts/traces
+    expire_in: 1 week
+
+retry:
+  max: 2
+  when:
+    - always
+
+after_script:
+  - echo "Tests completed"

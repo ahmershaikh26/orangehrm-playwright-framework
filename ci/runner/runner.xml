@@ -1,0 +1,21 @@
+<attachment id="file:runner.xml">
+<runner>
+    <testng>
+        <suite name="Playwright E2E Tests" verbose="1">
+            <test name="UI Tests">
+                <classes>
+                    <class name="tests.ui.smoke.login.spec"/>
+                    <class name="tests.ui.regression.purchase.spec"/>
+                    <class name="tests.ui.visual.ui-visual.spec"/>
+                </classes>
+            </test>
+            <test name="API Tests">
+                <classes>
+                    <class name="tests.api.smoke.healthcheck.spec"/>
+                    <class name="tests.api.integrations.auth.spec"/>
+                </classes>
+            </test>
+        </suite>
+    </testng>
+</runner>
+</attachment>
